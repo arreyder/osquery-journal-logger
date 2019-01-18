@@ -5,8 +5,8 @@ import (
 
 	osquery "github.com/kolide/osquery-go"
 
-	"github.com/kolide/go-extension-tutorial/pkg/journal"
-	"github.com/kolide/go-extension-tutorial/pkg/systemd"
+	"github.com/arreyder/osquery-journal-logger/pkg/journal"
+	"github.com/arreyder/osquery-journal-logger/pkg/systemd"
 )
 
 func registerPlatformPlugins(server *osquery.ExtensionManagerServer) {

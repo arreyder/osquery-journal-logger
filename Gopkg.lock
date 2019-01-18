@@ -17,6 +17,17 @@
   version = "v0.4.5"
 
 [[projects]]
+  branch = "master"
+  digest = "1:1693992f38b40985b822228aaa314a4cefb383a94771ac33c3bef4cec27aad0d"
+  name = "github.com/arreyder/osquery-journal-logger"
+  packages = [
+    "pkg/journal",
+    "pkg/systemd",
+  ]
+  pruneopts = ""
+  revision = "80431fa5e54ecff5d3689e07fbf6006a5f40503c"
+
+[[projects]]
   digest = "1:5fc6db95056f027c33df38134f69c4d11c668c97dd1fc868d0b8512f76825462"
   name = "github.com/coreos/go-systemd"
   packages = [
@@ -34,17 +45,6 @@
   pruneopts = ""
   revision = "a389bdde4dd695d414e47b755e95e72b7826432c"
   version = "v4.1.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:7fda3be935cdc4222590c430da25e8967036215e776c0c85d01ead350b660420"
-  name = "github.com/kolide/go-extension-tutorial"
-  packages = [
-    "pkg/journal",
-    "pkg/systemd",
-  ]
-  pruneopts = ""
-  revision = "ad201cb14a3ff7d7328ca5f8f66a9b0bfb81ae47"
 
 [[projects]]
   branch = "master"
@@ -80,10 +80,10 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/arreyder/osquery-journal-logger/pkg/journal",
+    "github.com/arreyder/osquery-journal-logger/pkg/systemd",
     "github.com/coreos/go-systemd/dbus",
     "github.com/coreos/go-systemd/journal",
-    "github.com/kolide/go-extension-tutorial/pkg/journal",
-    "github.com/kolide/go-extension-tutorial/pkg/systemd",
     "github.com/kolide/osquery-go",
     "github.com/kolide/osquery-go/plugin/logger",
     "github.com/kolide/osquery-go/plugin/table",

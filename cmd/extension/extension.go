@@ -22,7 +22,7 @@ func main() {
 
 	// create an extension server
 	server, err := osquery.NewExtensionManagerServer(
-		"com.kolide.go_extension_tutorial",
+		"com.arreyder.osquery-journal-logger",
 		*flSocketPath,
 		osquery.ServerTimeout(time.Duration(*flTimeout)*time.Second),
 	)
