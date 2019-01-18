@@ -7,8 +7,8 @@ deps:
 	dep ensure -vendor-only
 
 build:  
-	echo "$(shell pwd)/build/tutorial-extension.ext" > /tmp/extensions.load
-	go build -i -o build/tutorial-extension.ext ./cmd/extension
+	echo "$(shell pwd)/build/journal-extension.ext" > /tmp/extensions.load
+	go build -i -o build/journal-extension.ext ./cmd/extension
 
 osqueryd: build
 	osqueryd \
@@ -17,14 +17,10 @@ osqueryd: build
 		--pidfile=/tmp/osquery.pid \
 		--database_path=/tmp/osquery.db \
 		--extensions_socket=/tmp/osquery.sock \
-		--config_refresh=60 \
-		--config_plugin=gist 
-		# --distributed_plugin=twitter \
-		# --distributed_interval=10 \
-		# --disable_distributed=false \
+		--config_refresh=60
 
 osqueryi: build
-	osqueryi --extension=./build/tutorial-extension.ext
+	osqueryi --extension=./build/journal-extension.ext
 
 clean:
 	rm -rf /tmp/extensions.load

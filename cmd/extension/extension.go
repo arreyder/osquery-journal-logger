@@ -5,8 +5,6 @@ import (
 	"log"
 	"time"
 
-	"github.com/kolide/go-extension-tutorial/pkg/gist"
-	"github.com/kolide/go-extension-tutorial/pkg/twitter"
 	osquery "github.com/kolide/osquery-go"
 )
 
@@ -31,20 +29,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error creating extension: %s\n", err)
 	}
-
-	// create and register the twitter distributed plugin.
-	// requires the configuration to be passed through env vars.
-	twitterPlugin, err := twitter.New()
-	if err != nil {
-		log.Fatal(err)
-	}
-	go twitterPlugin.Run()
-	defer twitterPlugin.Stop()
-	server.RegisterPlugin(twitterPlugin.Distributed())
-
-	// create and register gist config plugin.
-	// requires configuration to be available through environment variables.
-	server.RegisterPlugin(gist.New())
 
 	// register additional plugins which can only exist for a speciffic platform.
 	registerPlatformPlugins(server)
